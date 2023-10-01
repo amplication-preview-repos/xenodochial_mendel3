@@ -65,3 +65,16 @@ model Product {
   orders      Order[]
   updatedAt   DateTime @updatedAt
 }
+
+model PaymentMethod {
+  createdAt   DateTime                       @default(now())
+  id          String                         @id @default(cuid())
+  name        String
+  paymentType EnumPaymentMethodPaymentType[]
+  updatedAt   DateTime                       @updatedAt
+}
+
+enum EnumPaymentMethodPaymentType {
+  CashOnDelivery
+  Upi
+}
